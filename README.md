@@ -2,11 +2,11 @@
 
 A .NET template for creating Q# (QSharp) console applications, with **Quantum Game of Life** as an example implementation.
 
-> **Important Note**: Please use version **1.0.6** or later because of several packaging issues on previous versions (see [Packaging Issues on Previous Versions](#packaging-issues-on-previous-versions) for more details).
+> **Important Note**: Version **1.0.7** represents the **first stable release** with all packaging issues being resolved. Previous versions contain critical deployment errors (see [Packaging Issues on Previous Versions](#packaging-issues-on-previous-versions) for details).
 
 ## Features
 
-- 🚀 Ready-to-use Q# console application template
+- 🚀 **Ready-to-use** Q# console application template
 - 🎮 Quantum Game of Life simulation using quantum randomness
 - 📦 Pre-configured with Microsoft Quantum Development Kit
 - ✨ Clean project structure with best practices
@@ -116,9 +116,11 @@ This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICEN
 
 ## Packaging Issues on Previous Versions
 
-- **1.0.0**: Incorrectly included LICENSE file and misplaced `.template.config` folder.
-- **1.0.1**: Missing actual project content (Q# program and the project file).
-- **1.0.2**: Missing the template configuration folder (`.template.config`).
-- **1.0.3**: Incorrect file paths for template content, causing the same issue as 1.0.1.
-- **1.0.4**: Still missing actual project content (same issue as the previous version).
-- **1.0.5**: Still missing actual project content (same issue as the previous version).
+- **❌ 1.0.0**: Incorrectly included LICENSE file and misplaced `.template.config` folder.
+- **❌ 1.0.1**: Missing actual project content (Q# program and the project file).
+- **❌ 1.0.2**: Missing the template configuration folder (`.template.config`).
+- **❌ 1.0.3**: Incorrect file paths for template content, causing the same issue as 1.0.1.
+- **❌ 1.0.4**: Still missing actual project content (same issue as the previous version).
+- **❌ 1.0.5**: Still missing actual project content (same issue as the previous version).
+- **❌ 1.0.6**: Missing `.template.config` directory, preventing template installation.
+- **✅ 1.0.7**: All packaging issues resolved. **Feature-complete release** with correct template structure and content.
