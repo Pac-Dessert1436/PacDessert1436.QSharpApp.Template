@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Pac-Dessert1436",
+    "classifications": [
+        "Console",
+        "Common",
+        "Application",
+        "Q#"
+    ],
+    "name": "Q# Console App",
+    "identity": "PacDessert1436.QSharpApp.Template",
+    "shortName": "qsharpapp",
+    "tags": {
+        "language": "Q#",
+        "type": "project"
+    },
+    "sourceName": "QSharpApp",
+    "preferNameDirectory": true,
+    "sources": [
+        {
+            "exclude": [
+                "README.md",
+                ".git/**",
+                ".gitignore",
+                "bin/**",
+                "obj/**"
+            ]
+        }
+    ]
+}
