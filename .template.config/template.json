@@ -19,9 +19,6 @@
     "sources": [
         {
             "exclude": [
-                "README.md",
-                ".git/**",
-                ".gitignore",
                 "bin/**",
                 "obj/**"
             ]
