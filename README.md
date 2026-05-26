@@ -2,7 +2,7 @@
 
 A .NET template for creating Q# (QSharp) console applications, with **Quantum Game of Life** as an example implementation.
 
-> **Important Note**: Version **1.0.7** represents the **first stable release** with all packaging issues being resolved. Previous versions contain critical deployment errors (see [Packaging Issues on Previous Versions](#packaging-issues-on-previous-versions) for details).
+> **Important Note**: _Only version **1.0.10** is the **first stable release** with all packaging issues resolved. Please use this version for new Q# projects._ Previous versions contain critical deployment errors, including the NuGet package artifact bug on 1.0.7 through 1.0.9 (see [Packaging Issues on Previous Versions](#packaging-issues-on-previous-versions) for details).
 
 ## Features
 
@@ -123,4 +123,7 @@ This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICEN
 - **❌ 1.0.4**: Still missing actual project content (same issue as the previous version).
 - **❌ 1.0.5**: Still missing actual project content (same issue as the previous version).
 - **❌ 1.0.6**: Missing `.template.config` directory, preventing template installation.
-- **✅ 1.0.7**: All packaging issues resolved. **Feature-complete release** with correct template structure and content.
+- **❌ 1.0.7**: NuGet package artifacts (`.template.config`, `_rels`, `package` directories, `.nupkg` files) incorrectly included in generated project output.
+- **❌ 1.0.8**: Still contains incorrect package artifacts in project output.
+- **❌ 1.0.9**: Still contains incorrect package artifacts in project output.
+- **✅ 1.0.10**: All packaging issues resolved by giving up the `.nuspec` file configuration. The very first **feature-complete release** with correct template structure and content.
