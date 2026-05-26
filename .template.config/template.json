@@ -7,7 +7,7 @@
         "Application",
         "Q#"
     ],
-    "name": "Q# Console App",
+    "name": "Q# Console Application",
     "identity": "PacDessert1436.QSharpApp.Template",
     "shortName": "qsharpapp",
     "tags": {

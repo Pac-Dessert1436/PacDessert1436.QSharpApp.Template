@@ -2,7 +2,9 @@
 
 A .NET template for creating Q# (QSharp) console applications, with **Quantum Game of Life** as an example implementation.
 
-> **v1.0.0 Deprecated**: Version 1.0.0 has packaging issues containing incorrectly included LICENSE file and misplaced `.template.config` folder. _**Please use version 1.0.1 or later.**_
+> **Important Note**: Please use version **1.0.2** or later because:
+> - Version 1.0.0 had packaging issues (incorrectly included LICENSE file and misplaced `.template.config` folder). 
+> - Version 1.0.1 was missing actual project content (Q# program and the project file).
 
 ## Features
 
