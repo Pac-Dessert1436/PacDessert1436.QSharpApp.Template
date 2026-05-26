@@ -2,10 +2,7 @@
 
 A .NET template for creating Q# (QSharp) console applications, with **Quantum Game of Life** as an example implementation.
 
-> **Important Note**: Please use version **1.0.3** or later because of several packaging issues on previous versions:
-> - Version 1.0.0 incorrectly included LICENSE file and misplaced `.template.config` folder.
-> - Version 1.0.1 was missing actual project content (Q# program and the project file).
-> - Version 1.0.2 was missing the template configuration folder (`.template.config`).
+> **Important Note**: Please use version **1.0.6** or later because of several packaging issues on previous versions (see [Packaging Issues on Previous Versions](#packaging-issues-on-previous-versions) for more details).
 
 ## Features
 
@@ -116,3 +113,12 @@ This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICEN
 - [Q# Documentation](https://learn.microsoft.com/en-us/azure/quantum/)
 - [Microsoft Quantum Development Kit](https://aka.ms/qdk)
 - [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+
+## Packaging Issues on Previous Versions
+
+- **1.0.0**: Incorrectly included LICENSE file and misplaced `.template.config` folder.
+- **1.0.1**: Missing actual project content (Q# program and the project file).
+- **1.0.2**: Missing the template configuration folder (`.template.config`).
+- **1.0.3**: Incorrect file paths for template content, causing the same issue as 1.0.1.
+- **1.0.4**: Still missing actual project content (same issue as the previous version).
+- **1.0.5**: Still missing actual project content (same issue as the previous version).
