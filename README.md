@@ -2,7 +2,7 @@
 
 A .NET template for creating Q# (QSharp) console applications, with **Quantum Game of Life** as an example implementation.
 
-> **Important Note**: _Only version **1.0.10** is the **first stable release** with all packaging issues resolved. Please use this version for new Q# projects._ Previous versions contain critical deployment errors, including the NuGet package artifact bug on 1.0.7 through 1.0.9 (see [Packaging Issues on Previous Versions](#packaging-issues-on-previous-versions) for details).
+> **Important Note**: Version **1.0.12** is the stable release with all packaging issues resolved. The template now produces only the essential files (`AppMain.qs` and `{YourProjectName}.csproj`) with no extraneous artifacts.
 
 ## Features
 
@@ -10,6 +10,7 @@ A .NET template for creating Q# (QSharp) console applications, with **Quantum Ga
 - 🎮 Quantum Game of Life simulation using quantum randomness
 - 📦 Pre-configured with Microsoft Quantum Development Kit
 - ✨ Clean project structure with best practices
+- 📝 Complete C# project configuration with all necessary settings
 
 ## Getting Started
 
@@ -23,14 +24,14 @@ A .NET template for creating Q# (QSharp) console applications, with **Quantum Ga
 Install the template from NuGet:
 
 ```bash
-dotnet new install PacDessert1436.QSharpApp.Template
+dotnet new install PacDessert1436.QSharpApp.Template@1.0.12
 ```
+- **Note**: `@` is now the recommended way to specify the version number (`::` was deprecated).
 
-Or install locally from source:
+Or install the latest version:
 
 ```bash
-cd QSharpAppTemplate
-dotnet new install .
+dotnet new install PacDessert1436.QSharpApp.Template
 ```
 
 ### Create a New Project
@@ -52,9 +53,30 @@ dotnet run
 
 ```
 MyQuantumApp/
-├── AppMain.qs           # Main Q# program with Game of Life
-└── MyQuantumApp.csproj  # Project configuration
+├── AppMain.qs           # Main Q# program with Game of Life implementation
+└── MyQuantumApp.csproj  # C# project configuration file
 ```
+
+## C# Project Configuration
+
+The generated `MyQuantumApp.csproj` includes the following key configurations:
+
+### SDK and Framework
+- **SDK**: Microsoft.Quantum.Sdk (version 0.28.302812)
+- **Target Framework**: .NET 8.0
+- **Output Type**: Console Application (Exe)
+
+### Project Properties
+- **Root Namespace**: Set to project name (e.g., `MyQuantumApp`)
+- **Implicit Usings**: Enabled
+- **Nullable Reference Types**: Enabled
+
+### Template Metadata (for package generation)
+- **PackageId**: `PacDessert1436.QSharpApp.Template`
+- **Version**: 1.0.12
+- **Title**: Q# Console App Template
+- **Authors**: Pac-Dessert1436
+- **PackageType**: Template
 
 ## Quantum Game of Life
 
@@ -114,16 +136,9 @@ This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICEN
 - [Microsoft Quantum Development Kit](https://aka.ms/qdk)
 - [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-## Packaging Issues on Previous Versions
+## Version History
 
-- **❌ 1.0.0**: Incorrectly included LICENSE file and misplaced `.template.config` folder.
-- **❌ 1.0.1**: Missing actual project content (Q# program and the project file).
-- **❌ 1.0.2**: Missing the template configuration folder (`.template.config`).
-- **❌ 1.0.3**: Incorrect file paths for template content, causing the same issue as 1.0.1.
-- **❌ 1.0.4**: Still missing actual project content (same issue as the previous version).
-- **❌ 1.0.5**: Still missing actual project content (same issue as the previous version).
-- **❌ 1.0.6**: Missing `.template.config` directory, preventing template installation.
-- **❌ 1.0.7**: NuGet package artifacts (`.template.config`, `_rels`, `package` directories, `.nupkg` files) incorrectly included in generated project output.
-- **❌ 1.0.8**: Still contains incorrect package artifacts in project output.
-- **❌ 1.0.9**: Still contains incorrect package artifacts in project output.
-- **✅ 1.0.10**: All packaging issues resolved by giving up the `.nuspec` file configuration. The very first **feature-complete release** with correct template structure and content.
+| Version | Status | Notes |
+|---------|--------|-------|
+| 1.0.0–1.0.11 | ⚠️ Deprecated | Various packaging and configuration issues (removed from NuGet.org) |
+| 1.0.12 | ✅ Stable | **Current**: Clean template with only essential files (`AppMain.qs`, `.csproj`) |

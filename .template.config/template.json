@@ -18,11 +18,9 @@
     "preferNameDirectory": true,
     "sources": [
         {
-            "exclude": [
-                "README.md",
-                "bin/**",
-                "obj/**",
-                ".template.config/**"
+            "include": [
+                "AppMain.qs",
+                "QSharpApp.csproj"
             ]
         }
     ]
