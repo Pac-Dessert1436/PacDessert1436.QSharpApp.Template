@@ -2,7 +2,7 @@
 
 A .NET template for creating Q# (QSharp) console applications, with **Quantum Game of Life** as an example implementation.
 
-> **Important Note**: Version **1.0.12** is the stable release with all packaging issues resolved. The template now produces only the essential files (`AppMain.qs` and `{YourProjectName}.csproj`) with no extraneous artifacts.
+> **Important Note**: _Version **1.0.14** is the very first production-ready release, with all packaging issues finally resolved._ The template now correctly produces the essential files (`AppMain.qs` and `{YourProjectName}.csproj`) for Q# console applications, with no more extraneous artifacts or any other packaging issues.
 
 ## Features
 
@@ -24,7 +24,7 @@ A .NET template for creating Q# (QSharp) console applications, with **Quantum Ga
 Install the template from NuGet:
 
 ```bash
-dotnet new install PacDessert1436.QSharpApp.Template@1.0.12
+dotnet new install PacDessert1436.QSharpApp.Template@1.0.14
 ```
 - **Note**: `@` is now the recommended way to specify the version number (`::` was deprecated).
 
@@ -73,7 +73,7 @@ The generated `MyQuantumApp.csproj` includes the following key configurations:
 
 ### Template Metadata (for package generation)
 - **PackageId**: `PacDessert1436.QSharpApp.Template`
-- **Version**: 1.0.12
+- **Version**: 1.0.14
 - **Title**: Q# Console App Template
 - **Authors**: Pac-Dessert1436
 - **PackageType**: Template
@@ -138,7 +138,9 @@ This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICEN
 
 ## Version History
 
-| Version | Status | Notes |
-|---------|--------|-------|
-| 1.0.0–1.0.11 | ⚠️ Deprecated | Various packaging and configuration issues (removed from NuGet.org) |
-| 1.0.12 | ✅ Stable | **Current**: Clean template with only essential files (`AppMain.qs`, `.csproj`) |
+- **⚠️ 1.0.0-1.0.13 Deprecated**: Various packaging and configuration issues including:
+    - Incorrect packaging metadata in `.nuspec` file or `.csproj` file
+    - Missing essential files for the template (`AppMain.qs`, `.csproj`)
+    - Unexpected NuGet artifacts exposing the author's personal information
+
+- **✅ 1.0.14 Stable**: Fixed packaging metadata moved to `.nuspec` file. Essential files for Q# console applications now correctly packaged.

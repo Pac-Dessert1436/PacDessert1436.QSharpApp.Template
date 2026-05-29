@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>PacDessert1436.QSharpApp.Template</id>
+    <version>1.0.14</version>
+    <authors>Pac-Dessert1436</authors>
+    <description>A .NET template for creating Q# (QSharp) console applications, with Quantum Game of Life as an example implementation.</description>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+    <tags>console;template;qsharp;application;game-of-life;quantum</tags>
+    <repository url="https://github.com/Pac-Dessert1436/PacDessert1436.QSharpApp.Template" />
+    <projectUrl>https://github.com/Pac-Dessert1436/PacDessert1436.QSharpApp.Template</projectUrl>
+    <license type="expression">BSD-3-Clause</license>
+    <readme>README.md</readme>
+  </metadata>
+  <files>
+    <file src="AppMain.qs" target="content/AppMain.qs" />
+    <file src="QSharpApp.csproj" target="content/QSharpApp.csproj" />
+    <file src=".template.config/template.json" target="content/.template.config/template.json" />
+    <file src="README.md" target="README.md" />
+    <file src="LICENSE" target="LICENSE" />
+  </files>
+</package>

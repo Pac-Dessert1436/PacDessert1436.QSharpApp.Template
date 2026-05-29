@@ -16,6 +16,12 @@
     },
     "sourceName": "QSharpApp",
     "preferNameDirectory": true,
+    "symbols": {
+        "skipPackagingProps": {
+            "type": "computed",
+            "value": "true"
+        }
+    },
     "sources": [
         {
             "include": [

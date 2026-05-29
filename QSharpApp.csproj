@@ -7,29 +7,5 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <PackageId>PacDessert1436.QSharpApp.Template</PackageId>
-    <Version>1.0.12</Version>
-    <Authors>Pac-Dessert1436</Authors>
-    <Company></Company>
-    <Description>A .NET template for creating Q# (QSharp) console applications, with Quantum Game of
-      Life as an example implementation.</Description>
-    <PackageType>Template</PackageType>
-    <PackageTags>console;template;qsharp;application;game-of-life;quantum</PackageTags>
-    <RepositoryUrl>https://github.com/Pac-Dessert1436/PacDessert1436.QSharpApp.Template</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/Pac-Dessert1436/PacDessert1436.QSharpApp.Template</PackageProjectUrl>
-    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <NoDefaultExcludes>true</NoDefaultExcludes>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="AppMain.qs" Pack="true" PackagePath="content\" />
-    <None Include="QSharpApp.csproj" Pack="true" PackagePath="content\" />
-    <None Include=".template.config\**\*" Pack="true" PackagePath=".template.config\" />
-    <None Include="README.md" Pack="true" PackagePath="\" />
-    <None Include="LICENSE" Pack="true" PackagePath="\" />
-  </ItemGroup>
+  
 </Project>
