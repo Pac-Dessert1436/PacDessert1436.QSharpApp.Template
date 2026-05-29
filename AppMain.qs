@@ -12,84 +12,7 @@ namespace AppMain {
         return result == One;
     }
 
-    operation PrintGrid(grid : Bool[][], width : Int, height : Int) : Unit {
-        PrintGridHelper(grid, width, height, height);
-    }
-
-    operation PrintGridHelper(grid : Bool[][], width : Int, height : Int, rowIdx : Int) : Unit {
-        if rowIdx > 0 {
-            let row = rowIdx - 1;
-            PrintGridHelper(grid, width, height, rowIdx - 1);
-            Message(RowToString(grid[row], width));
-        }
-    }
-
-    function RowToString(row : Bool[], width : Int) : String {
-        return RowToStringHelper(row, width, "");
-    }
-
-    function RowToStringHelper(row : Bool[], width : Int, acc : String) : String {
-        if width == 0 { return acc; }
-        return RowToStringHelper(row, width - 1, acc + (row[width - 1] ? "#" | "."));
-    }
-
-    operation ComputeRow(grid : Bool[][], width : Int, height : Int, row : Int) : Bool[] {
-        return ComputeRowHelper(grid, width, height, row, width);
-    }
-
-    operation ComputeRowHelper(
-        grid : Bool[][],
-        width : Int,
-        height : Int,
-        row : Int,
-        colIdx : Int
-    ) : Bool[] {
-        if colIdx == 0 { return []; }
-        let col = colIdx - 1;
-        let neighbors = CountLiveNeighbors(grid, width, height, row, col);
-        let cellValue = ComputeCell(grid[row][col], neighbors);
-        let rest = ComputeRowHelper(grid, width, height, row, colIdx - 1);
-        return [cellValue] + rest;
-    }
-
-    operation NextGeneration(grid : Bool[][], width : Int, height : Int) : Bool[][] {
-        return NextGenerationHelper(grid, width, height, height);
-    }
-
-    operation NextGenerationHelper(
-        grid : Bool[][],
-        width : Int,
-        height : Int,
-        rowIdx : Int
-    ) : Bool[][] {
-        if rowIdx == 0 { return []; }
-        let row = rowIdx - 1;
-        let newRow = ComputeRow(grid, width, height, row);
-        let rest = NextGenerationHelper(grid, width, height, rowIdx - 1);
-        return [newRow] + rest;
-    }
-
-    operation GenerateRandomGrid(width : Int, remaining : Int) : Bool[][] {
-        if remaining == 0 { return []; }
-        let row = GenerateRandomRow(width, width);
-        let rest = GenerateRandomGrid(width, remaining - 1);
-        return [row] + rest;
-    }
-
-    operation GenerateRandomRow(width : Int, remaining : Int) : Bool[] {
-        if remaining == 0 { return []; }
-        let bit = QuantumRandomBit();
-        let rest = GenerateRandomRow(width, remaining - 1);
-        return [bit] + rest;
-    }
-
-    function CountLiveNeighbors(
-        grid : Bool[][],
-        width : Int,
-        height : Int,
-        x : Int,
-        y : Int
-    ) : Int {
+    function CountLiveNeighbors(grid : Bool[][], width : Int, height : Int, x : Int, y : Int) : Int {
         mutable count = 0;
         for dx in -1..1 {
             for dy in -1..1 {
@@ -113,18 +36,52 @@ namespace AppMain {
         }
     }
 
-    operation RunGenerations(
-        grid : Bool[][],
-        width : Int,
-        height : Int,
-        maxGen : Int,
-        currGen : Int
-    ) : Unit {
-        if currGen < maxGen {
-            let newGrid = NextGeneration(grid, width, height);
-            Message($"\nGeneration {currGen + 1}:");
-            PrintGrid(newGrid, width, height);
-            RunGenerations(newGrid, width, height, maxGen, currGen + 1);
+    function NextGeneration(grid : Bool[][], width : Int, height : Int) : Bool[][] {
+        mutable newGrid = [[], size = height];
+        for row in 0..height-1 {
+            mutable newRow = [false, size = width];
+            for col in 0..width-1 {
+                set newRow w/= col <- ComputeCell(
+                    grid[row][col],
+                    CountLiveNeighbors(grid, width, height, row, col)
+                );
+            }
+            set newGrid w/= row <- newRow;
+        }
+        return newGrid;
+    }
+
+    operation GenerateRandomGrid(width : Int, height : Int) : Bool[][] {
+        mutable grid = [[], size = height];
+        for row in 0..height-1 {
+            mutable newRow = [false, size = width];
+            for col in 0..width-1 {
+                set newRow w/= col <- QuantumRandomBit();
+            }
+            set grid w/= row <- newRow;
+        }
+        return grid;
+    }
+
+    function PrintGrid(grid : Bool[][], width : Int, height : Int) : Unit {
+        for row in 0..height-1 {
+            mutable line = "";
+            for col in 0..width-1 {
+                set line = line + (grid[row][col] ? "#" | ".");
+            }
+            Message(line);
+        }
+    }
+
+    function RunGenerations(grid : Bool[][], width : Int, height : Int, maxGen : Int) : Unit {
+        Message("Initial State:");
+        PrintGrid(grid, width, height);
+
+        mutable currentGrid = grid;
+        for gen in 1..maxGen {
+            set currentGrid = NextGeneration(currentGrid, width, height);
+            Message($"\nGeneration {gen}:");
+            PrintGrid(currentGrid, width, height);
         }
     }
 
@@ -135,10 +92,10 @@ namespace AppMain {
         let cfg = GameOfLifeConfig(30, 10, 15);
         Message($"***** Quantum Game of Life: Q# Console App *****");
         Message($"Grid size: {cfg::Width}x{cfg::Height}, Generations: {cfg::Generations}\n");
+
         let grid = GenerateRandomGrid(cfg::Width, cfg::Height);
-        Message("Initial State:");
-        PrintGrid(grid, cfg::Width, cfg::Height);
-        RunGenerations(grid, cfg::Width, cfg::Height, cfg::Generations, 0);
+        RunGenerations(grid, cfg::Width, cfg::Height, cfg::Generations);
+
         Message("\n===== End of Simulation =====");
     }
 }

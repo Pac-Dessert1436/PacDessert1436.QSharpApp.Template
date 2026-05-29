@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>PacDessert1436.QSharpApp.Template</id>
-    <version>1.0.14</version>
+    <version>1.0.15</version>
     <authors>Pac-Dessert1436</authors>
     <description>A .NET template for creating Q# (QSharp) console applications, with Quantum Game of Life as an example implementation.</description>
     <packageTypes>

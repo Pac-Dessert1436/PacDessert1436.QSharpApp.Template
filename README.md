@@ -2,7 +2,7 @@
 
 A .NET template for creating Q# (QSharp) console applications, with **Quantum Game of Life** as an example implementation.
 
-> **Important Note**: _Version **1.0.14** is the very first production-ready release, with all packaging issues finally resolved._ The template now correctly produces the essential files (`AppMain.qs` and `{YourProjectName}.csproj`) for Q# console applications, with no more extraneous artifacts or any other packaging issues.
+> **Note on Latest Version**: _Version **1.0.15** is the latest production-ready release._ Building on the stable foundation of 1.0.14, this release features a simplified Q# codebase without recursive functions, making it cleaner, more maintainable, and easier to understand.
 
 ## Features
 
@@ -12,27 +12,29 @@ A .NET template for creating Q# (QSharp) console applications, with **Quantum Ga
 - ✨ Clean project structure with best practices
 - 📝 Complete C# project configuration with all necessary settings
 
+## Version Notes: 1.0.14 → 1.0.15
+
+- **Simplified Q# Codebase**: Removed recursive functions from the Quantum Game of Life implementation
+- **Improved Readability**: Flattened control flow makes the code easier to understand and maintain
+- **Performance Optimizations**: Iterative approach provides better execution characteristics
+- **No Breaking Changes**: API and usage remain fully compatible with version 1.0.14
+
 ## Getting Started
 
 ### Prerequisites
 
-- .NET 8 SDK or later
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later
 - Microsoft Quantum Development Kit (QDK)
 
 ### Installation
 
-Install the template from NuGet:
+Install the template from NuGet via the following command (note that `@` is now the recommended way to specify the version number, since `::` was deprecated):
 
 ```bash
-dotnet new install PacDessert1436.QSharpApp.Template@1.0.14
+dotnet new install PacDessert1436.QSharpApp.Template@1.0.15
 ```
-- **Note**: `@` is now the recommended way to specify the version number (`::` was deprecated).
 
-Or install the latest version:
-
-```bash
-dotnet new install PacDessert1436.QSharpApp.Template
-```
+... or install the latest version without specifying the version number.
 
 ### Create a New Project
 
@@ -73,7 +75,7 @@ The generated `MyQuantumApp.csproj` includes the following key configurations:
 
 ### Template Metadata (for package generation)
 - **PackageId**: `PacDessert1436.QSharpApp.Template`
-- **Version**: 1.0.14
+- **Version**: 1.0.15
 - **Title**: Q# Console App Template
 - **Authors**: Pac-Dessert1436
 - **PackageType**: Template
@@ -144,3 +146,5 @@ This project is licensed under the BSD 3-Clause License. See the [LICENSE](LICEN
     - Unexpected NuGet artifacts exposing the author's personal information
 
 - **✅ 1.0.14 Stable**: Fixed packaging metadata moved to `.nuspec` file. Essential files for Q# console applications now correctly packaged.
+
+- **✅ 1.0.15 Enhanced**: Simplified Q# codebase with iterative approach (no recursive functions). Improved readability and maintainability while maintaining full backward compatibility.
